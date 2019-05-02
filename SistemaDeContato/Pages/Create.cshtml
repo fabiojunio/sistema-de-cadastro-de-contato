@@ -1,0 +1,21 @@
+﻿@page
+@model SistemaDeContato.Pages.CreateModel
+@{
+    ViewData["Title"] = "Novo Contato";
+}
+
+<h1 style="margin-top: 3%;">Novo Contato</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="input-group">
+        <label>Nome:</label>
+        <input type="text" asp-for="Customer.Name" class="form-control" placeholder="Digite o nome do contato" />
+        <span asp-validation-for="Customer.Name"></span>
+    </div>
+    <input type="submit" />
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

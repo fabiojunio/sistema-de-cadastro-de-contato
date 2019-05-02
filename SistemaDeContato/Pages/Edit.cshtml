@@ -1,0 +1,22 @@
+﻿@page "{id:int}"
+@model SistemaDeContato.Pages.EditModel
+@{
+    ViewData["Title"] = "Editar Contato";
+}
+
+<h1 style="margin-top: 3%;">Editar Contato - @Model.Customer.Id</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Customer.Id" type="hidden" />
+    <div class="input-group">
+        <label asp-for="Customer.Name"></label>
+        <input asp-for="Customer.Name" class="form-control" placeholder="Digite aqui..." />
+        <span asp-validation-for="Customer.Name"></span>
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
